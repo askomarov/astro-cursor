@@ -1,0 +1,73 @@
+---
+import Container from '@components/Container/Container'
+import Modal from '@components/Modal/Modal'
+import myImage from '@img/mountain.jpg'
+import MainLayout from '@layouts/Main/Main'
+import { Picture } from 'astro:assets'
+import Button from '@components/Button/Button'
+import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
+---
+
+<MainLayout title="Главная" description="Описание">
+  <section class="hero">
+    <div class="hero__container container">
+      <h2>Hello swiper</h2>
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide hero-slide">
+            <picture>
+              <img
+                src="./img/mountain-min.jpg"
+                width="320"
+                height="213"
+                alt="image"
+              />
+            </picture>
+          </div>
+          <div class="swiper-slide hero-slide">
+            <Picture
+              src={myImage}
+              alt="Example image."
+              quality={'high'}
+              formats={['webp']}
+              fallbackFormat="jpg"
+              width={800}
+              densities={[2]}
+            />
+          </div>
+        </div>
+        <div class="hero__pagination swiper-pagination"></div>
+        <Button
+          icon="arrow-right"
+          class="swiper__button swiper__button--prev"
+          iconPosBefore
+        />
+        <Button
+          icon="arrow-right"
+          class="swiper__button swiper__button--next"
+          iconPosBefore
+        />
+      </div>
+    </div>
+  </section>
+  <section>
+    <Container>
+      <Button
+        as="a"
+        target=""
+        href="/"
+        text="Стандартная модалка"
+        modal="example"
+      />
+      <Button text="Mодалка фиксированная по высоте" modal="policy" />
+    </Container>
+  </section>
+
+  <Fragment slot="modals">
+    <Modal name="example">
+      <h3>Example modal</h3>
+      <button type="button" data-close-modal>закрыть</button>
+    </Modal>
+    <ModalPolicy />
+  </Fragment>
+</MainLayout>
