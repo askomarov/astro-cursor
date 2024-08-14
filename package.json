@@ -23,6 +23,9 @@
   },
   "dependencies": {
     "astro": "^4.1.1",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.9",
+    "mouse-follower": "^1.1.2",
     "scroll-lock": "2.1.5",
     "typescript": "^5.5.4"
   },

@@ -1,5 +1,5 @@
 // /** @type {import("eslint").Linter.Config} */
-require('@rushstack/eslint-patch/modern-module-resolution');
+require('@rushstack/eslint-patch/modern-module-resolution')
 module.exports = {
   env: {
     browser: true,
@@ -75,7 +75,7 @@ module.exports = {
     // --------------------------------------------
 
     'guard-for-in': 'error',
-    'max-nested-callbacks': ['error', { max: 3 }],
+    'max-nested-callbacks': ['error', { max: 4 }],
     'no-caller': 'error',
     'no-extend-native': 'error',
     'no-extra-bind': 'error',
