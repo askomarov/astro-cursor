@@ -41,13 +41,11 @@ import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
           icon="arrow-right"
           class="swiper__button swiper__button--prev"
           iconPosBefore
-          button-stuck
         />
         <Button
           icon="arrow-right"
           class="swiper__button swiper__button--next"
           iconPosBefore
-          button-stuck
         />
       </div>
     </div>
@@ -55,18 +53,23 @@ import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
   <section>
     <Container>
       <Button
-        as="a"
-        target=""
-        href="/"
-        text="Стандартная модалка"
+        text="Кнопка с видео"
         modal="example"
         data-cursor-video
       />
       <Button
-        text="Mодалка фиксированная по высоте"
+        text="Кнопка с картинкой"
         modal="policy"
         data-cursor-smile
       />
+      <Button
+        as="a"
+        target=""
+        href="/"
+        text="X"
+        button-stuck
+      >
+      </Button>
     </Container>
   </section>
 
