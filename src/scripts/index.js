@@ -80,7 +80,7 @@ document.addEventListener(
         btnWithStick.forEach((btn) => {
           parallaxMouse({
             elements: btn,
-            moveFactor: 100,
+            moveFactor: 10,
             wrap: btn
           })
           btn.addEventListener('mouseenter', () => {

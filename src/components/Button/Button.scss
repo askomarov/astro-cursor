@@ -34,11 +34,13 @@
   font-size: 18px;
   color: var(--color-fedora);
   font-family: var(--ff-Rubik);
+  pointer-events: none;
 }
 
 .button__icon {
   width: 24px;
   height: 24px;
+  pointer-events: none;
 
   svg {
     width: 100%;
