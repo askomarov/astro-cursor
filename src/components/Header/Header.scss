@@ -5,9 +5,24 @@
   height: 80px;
 }
 
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 .header__logo {
   svg {
     width: 140px;
     height: 48px;
   }
+}
+
+.header__button-burger {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: $z-index-header;
 }

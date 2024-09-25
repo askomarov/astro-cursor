@@ -1,0 +1,27 @@
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #ff6347;
+  z-index: $z-index-burger-menu;
+  width: 100%;
+  max-width: 320px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  li {
+    color: #000000;
+    display: block;
+    transform-origin: -20px 50%;
+    font-weight: 700;
+    font-size: 48px;
+    padding: 10px;
+    will-change: transform, opacity, filter;
+  }
+}

@@ -6,6 +6,7 @@ import MainLayout from '@layouts/Main/Main'
 import { Picture } from 'astro:assets'
 import Button from '@components/Button/Button'
 import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
+import BurgerMenu from '@components/BurgerMenu/BurgerMenu'
 ---
 
 <MainLayout title="Главная" description="Описание">
@@ -74,6 +75,7 @@ import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
   </section>
 
   <Fragment slot="modals">
+    <BurgerMenu />
     <Modal name="example">
       <h3>Example modal</h3>
       <button type="button" data-close-modal>закрыть</button>

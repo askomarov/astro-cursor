@@ -1,12 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components'
 import Container from '@components/Container/Container'
+import Button from '@components/Button/Button'
 ---
 
 <header class="header">
-  <Container>
+  <Container className="header__container">
     <div class="header__logo" data-cursor-inverse>
       <Icon name="logo" />
     </div>
+
+    <Button class="header__button-burger button-burger" text="X" button-stuck />
   </Container>
 </header>

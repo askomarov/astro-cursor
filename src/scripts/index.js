@@ -6,6 +6,7 @@ import { initModals } from './modules/modals/init-modals'
 import { mobileVhFix } from './utils/mobile-vh-fix'
 import { initSlider } from './modules/init-slider'
 import { parallaxMouse } from './utils/parallax-mouse'
+import { initBurgerMenu } from './modules/init-burger-menu'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,7 +29,7 @@ document.addEventListener(
     // в load следует добавить скрипты, не участвующие в работе первого экрана
     window.addEventListener('load', () => {
       initModals()
-
+      initBurgerMenu()
       MouseFollower.registerGSAP(gsap)
 
       const cursor = new MouseFollower()
