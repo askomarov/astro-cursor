@@ -7,9 +7,15 @@ import { Picture } from 'astro:assets'
 import Button from '@components/Button/Button'
 import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
 import BurgerMenu from '@components/BurgerMenu/BurgerMenu'
+import SquareEffect from '@components/SquareEffect/SquareEffect'
+import RotationCards from '@components/RotationCards/RotationCards'
 ---
 
 <MainLayout title="Главная" description="Описание">
+  <RotationCards />
+  <section class="spacer section-next">
+    <h1>hello</h1>
+  </section>
   <section class="hero">
     <div class="hero__container container">
       <h2>Hello swiper</h2>
@@ -73,6 +79,7 @@ import BurgerMenu from '@components/BurgerMenu/BurgerMenu'
       </Button>
     </Container>
   </section>
+  <SquareEffect />
 
   <Fragment slot="modals">
     <BurgerMenu />

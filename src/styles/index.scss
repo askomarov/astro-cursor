@@ -21,3 +21,18 @@
 // ---------------------------------------
 @import "../components/**/*"; // компоненты из astro
 @import "./components/*";
+
+.spacer {
+  min-height: 600px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-next {
+  background-color: #ff00ff;
+  margin-top: -200px;
+  position: relative;
+  z-index: 3;
+}

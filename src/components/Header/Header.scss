@@ -3,6 +3,10 @@
   align-items: center;
   width: 100%;
   height: 80px;
+  position: fixed;
+  z-index: 251;
+  top: 0;
+  pointer-events: none;
 }
 
 .header__container {
@@ -14,6 +18,8 @@
 }
 
 .header__logo {
+  pointer-events: auto;
+
   svg {
     width: 140px;
     height: 48px;
@@ -21,6 +27,7 @@
 }
 
 .header__button-burger {
+  pointer-events: auto;
   position: fixed;
   top: 1rem;
   right: 1rem;

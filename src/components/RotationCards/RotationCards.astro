@@ -1,0 +1,77 @@
+---
+interface Props {}
+
+const {} = Astro.props
+
+const cards = Array.from({ length: 36 })
+---
+
+<rotation-cards class="rotation-wrap home_kv">
+  <div class="rotation-wrap__inner home_kv_inner">
+    <div class="rotation-wrap__wrap home_kv_wrap">
+      <div class="rotation-cards home_kv_image">
+        {
+          cards.map((item, index) => (
+            <div class="roation-card">
+              <div
+                class="roation-card__inner roation-card__inner--front"
+                data-panel-item="front"
+              >
+                front {index + 1}
+              </div>
+              <div
+                class="roation-card__inner roation-card__inner--back"
+                data-panel-item="back"
+              >
+                back {index + 1}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</rotation-cards>
+
+<script>
+  class RotationCards extends HTMLElement {
+    cardsFront: any
+
+    constructor() {
+      super()
+      const parent = this.querySelector('.rotation-cards')
+      this.cardsFront = parent.querySelectorAll('[data-panel-item="front"]')
+
+      this.onmouseover = (evt) => {
+        evt.preventDefault()
+        evt.stopPropagation()
+        const e = (evt.currentTarget as HTMLElement).parentElement
+        if (!e || e.getAttribute('data-hover') === 'true') {
+          return
+        }
+
+        e.setAttribute('data-hover', 'true')
+
+        setTimeout(() => {
+          e.setAttribute('data-hover', 'false')
+        }, 1100)
+      }
+      this.cardsFront.forEach((item) => {
+        item.addEventListener('mouseover', this.onmouseover)
+      })
+    }
+
+    disconnectedCallback() {
+      // const parent = this
+      // const cardsFront = parent.querySelectorAll('[data-panel-item="front"]')
+      this.cardsFront.forEach((item) => {
+        if (!item) {
+          return
+        }
+        item.removeEventListener('mouseover', this.onmouseover)
+      })
+    }
+  };
+
+  customElements.define('rotation-cards', RotationCards)
+</script>
