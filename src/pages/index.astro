@@ -1,9 +1,7 @@
 ---
 import Container from '@components/Container/Container'
 import Modal from '@components/Modal/Modal'
-import myImage from '@img/mountain.jpg'
 import MainLayout from '@layouts/Main/Main'
-import { Picture } from 'astro:assets'
 import Button from '@components/Button/Button'
 import ModalPolicy from '@components/ModalPolicy/ModalPolicy'
 import BurgerMenu from '@components/BurgerMenu/BurgerMenu'
@@ -32,15 +30,14 @@ import RotationCards from '@components/RotationCards/RotationCards'
             </picture>
           </div>
           <div class="swiper-slide hero-slide">
-            <Picture
-              src={myImage}
-              alt="Example image."
-              quality={'high'}
-              formats={['webp']}
-              fallbackFormat="jpg"
-              width={800}
-              densities={[2]}
-            />
+            <picture>
+              <img
+                src="./assets/mountain-min.jpg"
+                width="320"
+                height="213"
+                alt="image"
+              />
+            </picture>
           </div>
         </div>
         <div class="hero__pagination swiper-pagination"></div>
