@@ -1,44 +1,49 @@
-name: Deploy to GitHub Pages
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
 on:
+  # Запуск на пуш в ветку main
   push:
-    branches: [ master ]
+    branches: ['main']
 
+  # Позволяет вручную запустить workflow через вкладку Actions
+  workflow_dispatch:
+
+# Установка прав GITHUB_TOKEN для деплоя на GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Разрешить только один деплой одновременно
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      # Build
-      - name: Install dependencies
-        run: npm i
-      - name: Build
-        run: npm run build
-      - name: Create robots.txt
-        run: npm run robots
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./dist"
-
   deploy:
-    needs: build
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm i
+      - name: Build
+        run: npm run build  # Запуск сборки
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'  # Загружаем содержимое папки dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
